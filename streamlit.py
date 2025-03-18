@@ -16,6 +16,7 @@ st.write("Ask about stocks, market trends, or general finance. Get expert insigh
 
 
 def initialize_agents():
+
     # Financial Data Agent
     financial_agent = Agent(
         name="Financial AI Agent",
@@ -27,28 +28,21 @@ def initialize_agents():
                 company_news=True, technical_indicators=True, historical_prices=True
             )
         ],
-        show_tool_calls=False,
+        show_tool_calls=True,
         markdown=True,
-        instructions=[
-            "Always create tables for comparisons when comparing multiple stocks.",
-            "Include stock price, P/E ratio, EPS growth, debt-to-equity ratio, analyst recommendations, and key financial metrics in comparisons.",
-            "Provide a clear investment recommendation based on financial analysis and risk tolerance.",
-            "If additional financial data is unavailable, proceed with available information."
-        ],
+        instructions=["Always create tables for comparisons"],
         debug=True
     )
+
 
     # Web Research Agent
     web_researcher = Agent(
         name="Web Researcher Agent",
         model=Gemini(id="gemini-2.0-flash"),
         tools=[GoogleSearch()],
-        show_tool_calls=False,
+        show_tool_calls=True,
         markdown=True,
-        instructions=[
-            "Always include sources of the information that you gather.",
-            "If no additional data is found, proceed with available financial data."
-        ],
+        instructions=["Always include sources of the information that you gather"], 
         debug=True
     )
 
@@ -56,15 +50,9 @@ def initialize_agents():
     agents_team = Agent(
         team=[financial_agent, web_researcher],
         model=Gemini(id="gemini-2.0-flash"),
-        show_tool_calls=False,
+        show_tool_calls=True,
         markdown=True,
-        instructions=[
-            "Always include sources of the information gathered.",
-            "Always create tables for comparisons.",
-            "Ensure stock comparison includes key financial metrics and qualitative insights.",
-            "Provide an investment recommendation based on financial analysis and market trends.",
-            "If web research data is unavailable, generate insights based on financial data alone."
-        ],
+        instructions=["Always include source of the information gathered", "Always create tables for comparisons"],
         debug=True
     )
 
