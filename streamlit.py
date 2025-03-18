@@ -28,7 +28,7 @@ def initialize_agents():
                 company_news=True, technical_indicators=True, historical_prices=True
             )
         ],
-        show_tool_calls=True,
+        show_tool_calls=False,
         markdown=True,
         instructions=["Always create tables for comparisons"],
         debug=True
@@ -40,7 +40,7 @@ def initialize_agents():
         name="Web Researcher Agent",
         model=Gemini(id="gemini-2.0-flash"),
         tools=[GoogleSearch()],
-        show_tool_calls=True,
+        show_tool_calls=False,
         markdown=True,
         instructions=["Always include sources of the information that you gather"], 
         debug=True
@@ -50,7 +50,7 @@ def initialize_agents():
     agents_team = Agent(
         team=[financial_agent, web_researcher],
         model=Gemini(id="gemini-2.0-flash"),
-        show_tool_calls=True,
+        show_tool_calls=False,
         markdown=True,
         instructions=["Always include source of the information gathered", "Always create tables for comparisons"],
         debug=True
