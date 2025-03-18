@@ -63,6 +63,8 @@ streamlit run main.py
 - **Google Search API**: Web research capabilities.
 
 
+# Name :- Priyanshu Dey           
+# Email :- priyanshudey.ds@gmail.com
 
 ## License
 This project is licensed under the MIT License.
