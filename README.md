@@ -1,5 +1,7 @@
 # AI Financial & Market Analyst
 
+[![Website](https://img.shields.io/badge/Website-Click%20Here-blue)](https://financiaal.streamlit.app/)
+
 ![](1.png)
 
 ## Overview
